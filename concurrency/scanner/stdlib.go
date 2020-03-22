@@ -24,7 +24,7 @@ func main() {
 
 		b , err := ioutil.ReadFile(arg)
 		if err != nil {
-			log.Fatal("haha",err)
+			log.Fatal(err)
 		}
 		f := fs.AddFile(arg,fs.Base(),len(b))
 		var s scanner.Scanner
