@@ -137,7 +137,6 @@ func (v visitor) Visit(n ast.Node) (w ast.Visitor) {
 				}
 			}
 
-			fmt.Printf("%T\n",spec)
 		}
 
 	}
