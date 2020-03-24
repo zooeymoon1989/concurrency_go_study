@@ -117,6 +117,15 @@ func (v visitor) Visit(n ast.Node) (w ast.Visitor) {
 		countIdent(v, d.Key)
 		countIdent(v, d.Value)
 	case *ast.GenDecl:
+
+		if d.Tok == token.IMPORT {
+			for _ ,v :=range d.Specs{
+				if spec , ok := v.(*ast.ImportSpec);ok{
+					fmt.Println(spec.Path.Value)
+				}
+			}
+		}
+
 		if d.Tok != token.VAR {
 			return v
 		}
