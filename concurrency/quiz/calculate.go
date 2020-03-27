@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	fmt.Println(calculatePi(10000000))
+	fmt.Println(calculatePi(50000000))
 }
 
 func calculatePi(n int) float64 {
