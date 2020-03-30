@@ -68,7 +68,7 @@ func main() {
 	defer close(done)
 
 	for num := range take(done , repeat(done , 1) , 10) {
-		fmt.Printf("%v ",num)
+		fmt.Println(num)
 	}
 
 	for num := range take(done, repeatFn(done, randNum), 10) {
