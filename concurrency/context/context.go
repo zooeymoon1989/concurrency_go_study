@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"fmt"
+	"log"
 	"time"
 )
 
@@ -19,8 +20,12 @@ func main() {
 }
 
 func mySleepAndTalk(ctx context.Context, d time.Duration, s string) {
-	time.Sleep(d)
-	fmt.Println(s)
+	select {
+	case <-time.After(d):
+		fmt.Println(s)
+	case <-ctx.Done():
+		log.Print(ctx.Err())
+	}
 }
 
 func sleepAndTalk(ctx context.Context, duration time.Duration, s string) {
