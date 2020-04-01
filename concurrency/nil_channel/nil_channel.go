@@ -17,6 +17,7 @@ func main() {
 				case <-done:
 					return
 				case valueStream <- value:
+					value++
 					time.Sleep(time.Duration(rand.Intn(1000))*time.Millisecond)
 				}
 			}
@@ -34,7 +35,7 @@ func main() {
 				select {
 				case <-done:
 					return
-				case takeStream <- i+<-valueStream:
+				case takeStream <- <-valueStream:
 
 				}
 			}
