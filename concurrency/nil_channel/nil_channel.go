@@ -47,10 +47,7 @@ func main() {
 	done := make(chan interface{})
 	defer close(done)
 
-	a := take(done,repeat(done , 1),10)
-	b := take(done,repeat(done , 10),10)
-	c := merge(a,b)
-	for v := range c {
+	for v := range merge(take(done,repeat(done , 1),10),take(done,repeat(done , 10),10)){
 		fmt.Println(v)
 	}
 
