@@ -11,7 +11,7 @@ import (
 func main() {
 
 
-	fanIn := func(done chan interface{} , channels... <-chan interface{}) <-chan interface{}{
+	fanIn := func(done chan interface{} , channels ...<-chan interface{}) <-chan interface{}{
 
 		var wg sync.WaitGroup
 		multiplexedStream := make(chan interface{})

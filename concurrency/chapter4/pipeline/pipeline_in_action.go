@@ -67,7 +67,7 @@ func main() {
 	done := make(chan interface{})
 	defer close(done)
 
-	for num := range take(done , repeat(done , 1) , 10) {
+	for num := range take(done , repeat(done , 1,2,3,4,5,6,7,8,9,10) , 10) {
 		fmt.Println(num)
 	}
 
