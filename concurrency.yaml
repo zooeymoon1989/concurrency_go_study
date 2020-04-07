@@ -1,0 +1,20 @@
+# YAML 不是markup 语言
+# .yml yaml
+persion:
+  name: "liwenqiang"
+  occupation: 'programmer'
+  age: 30
+  gpa: 3.5
+  male: true
+  birthday: 1989-02-25
+  flaws: null
+  hobbies:
+    - gaming
+    - movies
+    - travels
+  movies: ["a","b"]
+
+  skills:
+    - database: mysql
+      code: some
+    -

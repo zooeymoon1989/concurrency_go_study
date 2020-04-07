@@ -10,8 +10,7 @@ func main() {
 
 	ctx := context.Background()
 
-	ctx, cancel := context.WithTimeout(ctx, time.Second) // 需要传递父context
-
+	ctx, cancel := context.WithTimeout(ctx, time.Second)
 	defer cancel()
 
 	mySleepAndTalk(ctx, time.Second*5, "hello")
@@ -19,16 +18,18 @@ func main() {
 }
 
 func mySleepAndTalk(ctx context.Context, d time.Duration, s string) {
-	time.Sleep(d)
-	fmt.Println(s)
+	select {
+	case <-time.After(d):
+		fmt.Println(s)
+	case <-ctx.Done():
+		fmt.Println(ctx.Err())
+	}
 }
 
 func sleepAndTalk(ctx context.Context, duration time.Duration, s string) {
-	c, cancel := context.WithTimeout(ctx, duration)
-	defer cancel()
 
 	select {
-	case <-c.Done():
+	case <-ctx.Done():
 		fmt.Println("handle", ctx.Err())
 
 	case <-time.After(duration):
