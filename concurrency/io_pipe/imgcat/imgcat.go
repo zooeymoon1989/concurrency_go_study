@@ -1,9 +1,7 @@
 package main
 
 import (
-	"encoding/base64"
 	"fmt"
-	"io"
 	"os"
 )
 
@@ -30,20 +28,12 @@ func cat(path string) error {
 		return err
 	}
 	defer f.Close()
+	err = Copy(os.Stdout , f)
 
-	fmt.Printf("\033]1337;File=inline=1:")
-	wc := base64.NewEncoder(base64.StdEncoding, os.Stdout)
-
-	_, err = io.Copy(wc, f)
 	if err != nil {
 		return err
 	}
 
-	if err = wc.Close(); err != nil {
-		return err
-	}
-
-	fmt.Printf("\a\n")
 
 	return nil
 }
