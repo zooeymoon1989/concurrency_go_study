@@ -1,2 +1,4 @@
 .idea
 vendor
+/concurrency/io_pipe/imgcat/*.jpg
+/concurrency/io_pipe/imgcat/*.jpeg
