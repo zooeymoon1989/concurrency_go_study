@@ -2,3 +2,5 @@
 vendor
 /concurrency/io_pipe/imgcat/*.jpg
 /concurrency/io_pipe/imgcat/*.jpeg
+/concurrency/io_pipe/imgcat/*.gif
+/concurrency/io_pipe/imgcat/*.png

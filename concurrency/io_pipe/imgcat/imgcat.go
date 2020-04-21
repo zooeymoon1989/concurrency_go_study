@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"io"
 	"os"
 )
 
@@ -22,18 +23,15 @@ func main() {
 
 func cat(path string) error {
 
-	// ESC ] 1337 ; File = [optional arguments] : base-64 encoded file contents ^G
 	f, err := os.Open(path)
 	if err != nil {
 		return err
 	}
 	defer f.Close()
-	err = Copy(os.Stdout , f)
 
-	if err != nil {
+	wc := NewWriter(os.Stdout)
+	if _, err = io.Copy(wc, f); err != nil {
 		return err
 	}
-
-
-	return nil
+	return wc.Close()
 }

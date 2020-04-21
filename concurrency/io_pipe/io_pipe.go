@@ -8,17 +8,17 @@ import (
 
 func main() {
 
-	pr , pw := io.Pipe()
+	pr, pw := io.Pipe()
 
 	go func() {
 		defer pw.Close()
-		_ , err :=fmt.Fprintf(pw , "hello")
-		if err != nil{
+		_, err := fmt.Fprintf(pw, "hello")
+		if err != nil {
 			panic(err)
 		}
 	}()
-	_ , err := io.Copy(os.Stdout,pr)
-	if err != nil{
+	_, err := io.Copy(os.Stdout, pr)
+	if err != nil {
 		panic(err)
 	}
 
