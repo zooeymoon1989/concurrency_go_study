@@ -1,40 +1,55 @@
 package main
 
+import (
+	"fmt"
+)
+
 type node struct {
-	prev    *node
 	next    *node
 	element interface{}
 }
 
 type list struct {
 	head *node
-	tail *node
 }
 
+// 插入元素到链表中
 func (l *list) Insert(key interface{}) {
+	// 初始化一个节点
 	n := &node{
-		next:    l.head,
 		element: key,
 	}
 
-	if ok := l.Find(key); ok {
+	if l.head == nil {
+		l.head = n
+		return
+	}
 
+	findNode := l.Find(key)
+
+	// 如果是最后一个节点
+	if findNode.next == nil {
+		findNode.next = n
+	} else {
+		n.next = findNode
+		findNode.next = n
 	}
 
 }
 
-func (l *list) Find(element interface{}) bool {
+// 查找某个元素是否在链表中
+func (l *list) Find(element interface{}) *node {
 
 	currentPoint := l.head
 	for currentPoint.next != nil {
 		if currentPoint.element == element {
-			return true
+			return currentPoint
 		}
 
 		currentPoint = currentPoint.next
 	}
 
-	return false
+	return currentPoint
 
 }
 
@@ -50,13 +65,28 @@ func (l *list) FindLast(element interface{}) {
 	panic("implement me")
 }
 
+// 遍历显示所有的元素
 func (l *list) Display() {
-	panic("implement me")
+
+	current := l.head
+	if l.head != nil {
+		fmt.Println(current.element)
+		for current.next != nil {
+			current = current.next
+			fmt.Println(current.element)
+		}
+	}
+
+}
+
+func (l *list) Append(*node) {
+
 }
 
 type ILinkList interface {
+	Append(*node)
 	Insert(key interface{})
-	Find(element interface{}) bool
+	Find(element interface{}) *node
 	Remove(element interface{})
 	FindPrevious(element interface{})
 	FindLast(element interface{})
@@ -64,5 +94,14 @@ type ILinkList interface {
 }
 
 func main() {
+	l := list{&node{element: 0}}
+	l.Insert(1)
+	l.Insert(2)
+	l.Insert(3)
+	l.Insert(4)
+	l.Insert(5)
+	l.Insert(6)
+	l.Insert(7)
+	l.Display()
 
 }
