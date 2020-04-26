@@ -14,22 +14,21 @@ package insert_sort
 
 func InsertSorted(array []int) []int {
 
-	if len(array) == 0 {
+	if len(array) <= 1 {
 		return nil
 	}
 
-	if len(array) == 1 {
-		return array
-	}
+	for i := range array {
 
-	for j := 1; j < len(array); j++ {
-		i := j - 1
-		for i >= 0 && array[i] > array[i+1] {
-			tmp := array[i]
-			array[i] = array[i+1]
-			array[i+1] = tmp
-			i--
+		j := i - 1
+		current := array[i]
+
+		for j >= 0 && array[j] > current {
+			array[j+1] = array[j]
+			j--
 		}
+
+		array[j+1] = current
 
 	}
 
