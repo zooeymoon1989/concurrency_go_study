@@ -7,16 +7,19 @@ func ShellSort(array []int) []int {
 	}
 
 	for j := len(array) / 2; j > 0; j = j / 2 {
-		for i := j; i < len(array); i++ {
-			k := i - j
+
+		for i := j;i < len(array) ; i++ {
+
+			k := i
 			current := array[k]
 
-			for k >= 0 && array[k] > array[k+j] {
-				array[k+j] = array[k]
+			for k - j >= 0 && array[k-j] > current {
+
+				array[k] = array[k-j]
 				k = k - j
 			}
 
-			array[k+j] = current
+			array[k] = current
 
 		}
 
