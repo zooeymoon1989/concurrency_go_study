@@ -11,6 +11,7 @@ package insert_sort
 // 4。重复步骤3，直到找到已排序的元素小于或者等于新元素的位置；
 // 5。将新元素插入到该位置后；
 // 6。重复步骤2~5。
+
 func InsertSorted(array []int) []int {
 
 	if len(array) == 0 {
