@@ -102,7 +102,20 @@ func main() {
 	l.Insert(5)
 	l.Insert(6)
 	l.Insert(7)
-	//l.Display()
+
+
+	current := l.head
+	for current.next != nil {
+		n := &node{element:current.element,next:current.next}
+		current.next = n
+		current = n.next
+		if current.next == nil {
+			s := &node{element:current.element}
+			current.next = s
+			break
+		}
+	}
+	l.Display()
 
 	if l.head != nil {
 		reversePrint(l.head)
