@@ -102,6 +102,18 @@ func main() {
 	l.Insert(5)
 	l.Insert(6)
 	l.Insert(7)
-	l.Display()
+	//l.Display()
 
+	if l.head != nil {
+		reversePrint(l.head)
+	}
+
+
+}
+
+func reversePrint(n *node)  {
+	if n.next != nil {
+		reversePrint(n.next)
+	}
+	fmt.Println(n.element)
 }
