@@ -1,4 +1,4 @@
-package main
+package chapter1
 
 import (
 	"bytes"
@@ -8,7 +8,7 @@ import (
 	"time"
 )
 
-func main() {
+func LiveLock() {
 	cadence := sync.NewCond(&sync.Mutex{})
 
 	go func() {

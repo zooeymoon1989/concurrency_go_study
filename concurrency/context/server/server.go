@@ -1,4 +1,4 @@
-package main
+package server
 
 import (
 	"context"
@@ -8,12 +8,12 @@ import (
 	"time"
 )
 
-func main() {
-	http.HandleFunc("/", log.Decorate(handler))
+func Server() {
+	http.HandleFunc("/", log.Decorate(serverHandler))
 	panic(http.ListenAndServe("127.0.0.1:8080", nil))
 }
 
-func handler(w http.ResponseWriter, r *http.Request) {
+func serverHandler(w http.ResponseWriter, r *http.Request) {
 
 	ctx := r.Context()
 	ctx = context.WithValue(ctx , int(42) , int64(100))

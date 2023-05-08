@@ -1,4 +1,4 @@
-package main
+package chapter1
 
 import (
 	"fmt"
@@ -11,7 +11,7 @@ type value struct {
 	value int8
 }
 
-func main() {
+func DeadLock() {
 
 	var wg sync.WaitGroup
 	printSum := func(v1, v2 *value) {

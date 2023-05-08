@@ -1,4 +1,4 @@
-package main
+package chapter1
 
 import (
 	"fmt"
@@ -6,7 +6,7 @@ import (
 	"time"
 )
 
-func main() {
+func Hungry() {
 
 	var wg sync.WaitGroup
 	var sharedlock sync.Mutex

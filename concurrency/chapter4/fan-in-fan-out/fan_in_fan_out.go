@@ -1,4 +1,4 @@
-package main
+package fan_in_fan_out
 
 import (
 	"fmt"
@@ -8,7 +8,7 @@ import (
 	"time"
 )
 
-func main() {
+func FanInFanOut() {
 
 
 	fanIn := func(done chan interface{} , channels ...<-chan interface{}) <-chan interface{}{
@@ -151,7 +151,7 @@ func main() {
 		finders[i] = findPrime(done,randIntStream)
 	}
 
-	for prime := range take(done , fanIn(done,finders...) , 10) {
+	for prime := range take(done , fanIn(done,finders...) , 20) {
 		fmt.Printf("\t%d\n", prime)
 	}
 

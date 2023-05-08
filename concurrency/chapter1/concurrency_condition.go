@@ -1,11 +1,11 @@
-package main
+package chapter1
 
 import (
 	"fmt"
 	"sync"
 )
 
-func main() {
+func ConcurrencyCondition() {
 
 	var memoryAccess sync.Mutex
 

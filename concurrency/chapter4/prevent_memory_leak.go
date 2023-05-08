@@ -1,11 +1,11 @@
-package main
+package chapter4
 
 import (
 	"fmt"
 	"time"
 )
 
-func main() {
+func PreventMemoryLeak() {
 	doWork := func(done <-chan interface{}, strings <-chan string) <-chan interface{} {
 		var terminated = make(chan interface{})
 		go func() {

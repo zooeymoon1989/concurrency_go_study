@@ -1,4 +1,4 @@
-package main
+package context
 
 import (
 	"context"
@@ -6,7 +6,7 @@ import (
 	"time"
 )
 
-func main() {
+func Context() {
 
 	ctx := context.Background()
 

@@ -1,4 +1,4 @@
-package main
+package chapter3
 
 import (
 	"fmt"
@@ -6,7 +6,7 @@ import (
 	"sync"
 )
 
-func main() {
+func CalculateGoroutines() {
 
 	//在使用一次gc后返回系统总共的内存
 	memConsume := func() uint64 {

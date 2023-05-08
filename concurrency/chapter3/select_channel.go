@@ -1,4 +1,4 @@
-package main
+package chapter3
 
 import (
 	"fmt"
@@ -6,7 +6,7 @@ import (
 	"time"
 )
 
-func main() {
+func SelectChannel() {
 
 	//start := time.Now()
 	//c := make(chan interface{})

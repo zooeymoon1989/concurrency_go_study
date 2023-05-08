@@ -15,7 +15,7 @@ package insert_sort
 func InsertSorted(array []int) []int {
 
 	if len(array) <= 1 {
-		return nil
+		return array
 	}
 
 	for i := range array {

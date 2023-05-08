@@ -1,11 +1,11 @@
-package main
+package chapter3
 
 import (
 	"fmt"
 	"sync"
 )
 
-func main() {
+func ConcurrencyGo() {
 	var wg sync.WaitGroup
 	for _, salutation := range []int{1, 2, 3} {
 		wg.Add(1)

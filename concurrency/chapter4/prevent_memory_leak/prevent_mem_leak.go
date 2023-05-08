@@ -1,8 +1,8 @@
-package main
+package prevent_memory_leak
 
 import "fmt"
 
-func main() {
+func PreventMemLeak() {
 
 	doWork := func(done chan interface{}, strings chan string) chan interface{} {
 

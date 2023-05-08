@@ -1,4 +1,4 @@
-package main
+package chapter3
 
 import (
 	"fmt"
@@ -9,7 +9,7 @@ import (
 	"time"
 )
 
-func main() {
+func RWMutex() {
 
 	producer := func(wg *sync.WaitGroup, l sync.Locker) {
 		defer wg.Done()

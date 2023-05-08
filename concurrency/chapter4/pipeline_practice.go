@@ -1,4 +1,4 @@
-package main
+package chapter4
 
 //func main() {
 //	generator := func(done <-chan interface{}, integers ...int) <-chan int {

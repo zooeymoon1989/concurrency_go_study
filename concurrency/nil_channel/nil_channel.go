@@ -1,4 +1,4 @@
-package main
+package nil_channel
 
 import (
 	"fmt"
@@ -6,7 +6,7 @@ import (
 	"time"
 )
 
-func main() {
+func NilChannel() {
 
 	repeat := func(done chan interface{},value int) <-chan int{
 		valueStream := make(chan int)

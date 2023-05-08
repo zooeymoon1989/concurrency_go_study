@@ -1,11 +1,11 @@
-package main
+package chapter3
 
 import (
 	"fmt"
 	"sync"
 )
 
-func main() {
+func SyncMutex() {
 	var count int
 	var lock sync.Mutex
 

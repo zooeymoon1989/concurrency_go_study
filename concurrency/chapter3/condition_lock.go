@@ -1,4 +1,4 @@
-package main
+package chapter3
 
 import (
 	"fmt"
@@ -6,7 +6,7 @@ import (
 	"time"
 )
 
-func main() {
+func ConditionLock() {
 	c := sync.NewCond(&sync.Mutex{})
 	queue := make([]interface{}, 0, 10)
 

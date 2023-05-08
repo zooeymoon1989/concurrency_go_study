@@ -1,11 +1,11 @@
-package main
+package chapter4
 
 import (
 	"fmt"
 	"time"
 )
 
-func main() {
+func OrSelect() {
 
 	var or func(channels ...<-chan interface{}) <-chan interface{}
 	or = func(channels ...<-chan interface{}) <-chan interface{} {

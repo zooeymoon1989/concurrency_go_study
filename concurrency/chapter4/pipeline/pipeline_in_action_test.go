@@ -1,4 +1,4 @@
-package main
+package pipeline_in_action
 
 import "testing"
 

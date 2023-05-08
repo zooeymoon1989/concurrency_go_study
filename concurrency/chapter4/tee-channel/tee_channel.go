@@ -1,4 +1,4 @@
-package main
+package tee_channel
 
 import "fmt"
 

@@ -1,4 +1,4 @@
-package main
+package chapter3
 
 import (
 	"bytes"
@@ -6,7 +6,7 @@ import (
 	"os"
 )
 
-func main() {
+func Channel() {
 
 	//begin := make(chan interface{})
 	//var wg sync.WaitGroup

@@ -1,4 +1,4 @@
-package main
+package chapter4
 
 //func main() {
 //	newRandStream := func(done <-chan interface{}) <-chan int {

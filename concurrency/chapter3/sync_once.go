@@ -1,11 +1,11 @@
-package main
+package chapter3
 
 import (
 	"fmt"
 	"sync"
 )
 
-func main() {
+func SyncOnce() {
 
 	var count int
 	var once sync.Once

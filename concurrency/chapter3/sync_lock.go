@@ -1,11 +1,11 @@
-package main
+package chapter3
 
 import (
 	"fmt"
 	"sync"
 )
 
-func main() {
+func SyncLock() {
 	hello := func(wg *sync.WaitGroup, id int) {
 		defer wg.Done()
 		fmt.Printf("Hello from %v!\n", id)

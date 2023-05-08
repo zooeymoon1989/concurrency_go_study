@@ -4,19 +4,20 @@ import (
 	"fmt"
 	"reflect"
 	"sync"
+	"time"
 )
 
 func main() {
-
+	now := time.Now()
 	a := AsMergeChan(0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
 	b := AsMergeChan(10, 11, 12, 13, 14, 15, 16, 17, 18, 19)
 	c := AsMergeChan(20, 21, 22, 23, 24, 25, 26, 27, 28, 29)
 	d := AsMergeChan(30, 31, 32, 33, 34, 35, 36, 37, 38, 39)
 
-	for v := range MergeReflect(a, b, c,d) {
+	for v := range MergeChan(a, b, c, d) {
 		fmt.Println(v)
 	}
-
+	fmt.Println(time.Since(now))
 }
 
 func MergeChan(chans ...<-chan int) <-chan int {
@@ -49,8 +50,8 @@ func MergeReflect(chans ...<-chan int) <-chan int {
 	go func() {
 		defer close(out)
 		var cases []reflect.SelectCase
-		for _ , c := range chans {
-			cases = append(cases , reflect.SelectCase{
+		for _, c := range chans {
+			cases = append(cases, reflect.SelectCase{
 				Dir:  reflect.SelectRecv,
 				Chan: reflect.ValueOf(c),
 			})
@@ -58,9 +59,9 @@ func MergeReflect(chans ...<-chan int) <-chan int {
 
 		for len(cases) > 0 {
 
-			i , v , ok := reflect.Select(cases)
+			i, v, ok := reflect.Select(cases)
 			if !ok {
-				cases = append(cases[:i],cases[i+1:]...)
+				cases = append(cases[:i], cases[i+1:]...)
 				continue
 			}
 
@@ -68,21 +69,17 @@ func MergeReflect(chans ...<-chan int) <-chan int {
 
 		}
 	}()
-
-
 	return out
-
-
 }
 
 func AsMergeChan(vs ...int) <-chan int {
 	c := make(chan int)
 
 	go func() {
+		defer close(c)
 		for _, v := range vs {
 			c <- v
 		}
-		close(c)
 	}()
 
 	return c

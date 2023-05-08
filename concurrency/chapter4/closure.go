@@ -1,4 +1,4 @@
-package main
+package chapter4
 
 import "fmt"
 
@@ -31,7 +31,7 @@ import "fmt"
 //
 //}
 
-func main() {
+func Closure() {
 	chanOwner := func() <-chan int{
 		r := make(chan int,5)
 		go func() {

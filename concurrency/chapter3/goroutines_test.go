@@ -1,4 +1,4 @@
-package main
+package chapter3
 
 import (
 	"sync"

@@ -1,4 +1,4 @@
-package main
+package nil_channel
 
 import "fmt"
 
@@ -12,7 +12,7 @@ func callerB(c chan<- string) {
 	close(c)
 }
 
-func main() {
+func ChannelT() {
 	a, b := make(chan string), make(chan string)
 	go callerA(a)
 	go callerB(b)

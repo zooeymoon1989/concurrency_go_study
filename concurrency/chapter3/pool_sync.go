@@ -1,11 +1,11 @@
-package main
+package chapter3
 
 import (
 	"fmt"
 	"sync"
 )
 
-func main() {
+func PoolSync() {
 	//myPool := &sync.Pool{New: func() interface{} {
 	//	fmt.Println("Creating new instance")
 	//	return struct {}{}

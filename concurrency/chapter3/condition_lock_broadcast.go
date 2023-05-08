@@ -1,11 +1,11 @@
-package main
+package chapter3
 
 import (
 	"fmt"
 	"sync"
 )
 
-func main() {
+func ConditionLockBroadcast() {
 
 	type Button struct {
 		Clicked *sync.Cond
